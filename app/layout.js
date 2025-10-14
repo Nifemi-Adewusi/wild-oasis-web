@@ -8,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-primary-950 text-primary-100 min-h-screen">
         <Navigation />
         <main className="mx-auto">{children}</main>
         <footer>Copyright by the wild Oasis</footer>
