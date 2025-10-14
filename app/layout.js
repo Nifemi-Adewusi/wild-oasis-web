@@ -1,5 +1,7 @@
 import Navigation from "./_components/Navigation";
 
+import "@/app/_styles/globals.css";
+
 export const metadata = {
   title: "The Wild Oasis",
 };
@@ -8,7 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Navigation />
-        <main className="text-center">{children}</main>
+        <main className="mx-auto">{children}</main>
         <footer>Copyright by the wild Oasis</footer>
       </body>
     </html>
