@@ -1,5 +1,3 @@
-import Navigation from "./_components/Navigation";
-
 import "@/app/_styles/globals.css";
 
 import { Josefin_Sans } from "next/font/google";
@@ -28,7 +26,9 @@ export default function RootLayout({ children }) {
       >
         <Header />
         <div className="flex-1 px-8 py-12">
-          <main className="max-w-7xl px-10 mx-auto">{children}</main>
+          <main className="max-w-7xl px-10 mx-auto grid w-full">
+            {children}
+          </main>
         </div>
       </body>
     </html>
