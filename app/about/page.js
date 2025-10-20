@@ -40,12 +40,17 @@ export default function Page() {
       <div className="col-span-2">
         <Image
           src={image1}
+          placeholder="blur"
           alt="Family sitting around a fire pit in front of cabin"
         />
       </div>
 
       <div className="col-span-2 order-2 ">
-        <Image src={image2} alt="Family that manages The Wild Oasis" />
+        <Image
+          src={image2}
+          placeholder="blur"
+          alt="Family that manages The Wild Oasis"
+        />
       </div>
 
       <div className="col-span-3">
