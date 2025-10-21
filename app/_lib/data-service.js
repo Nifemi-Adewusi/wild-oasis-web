@@ -1,7 +1,17 @@
 import { eachDayOfInterval } from "date-fns";
+import { supabase } from "./supabase";
 
 /////////////
 // GET
+
+export function formatCurrency(amount) {
+  const amountToBeFormated = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  });
+  const formattedAmount = amountToBeFormated.format(amount);
+  return formattedAmount;
+}
 
 export async function getCabin(id) {
   const { data, error } = await supabase
@@ -36,7 +46,7 @@ export async function getCabinPrice(id) {
 
 export const getCabins = async function () {
   const { data, error } = await supabase
-    .from("cabins")
+    .from("Cabins")
     .select("id, name, maxCapacity, regularPrice, discount, image")
     .order("name");
 
