@@ -1,15 +1,20 @@
 import { UsersIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
+import { formatCurrency } from "../_lib/data-service";
 
 function CabinCard({ cabin }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
     <div className="flex border-primary-800 border">
-      <img
-        src={image}
-        alt={`Cabin ${name}`}
-        className="flex-1 border-r border-primary-800"
-      />
+      <div className="hidden md:flex-1 md:block md:relative">
+        <Image
+          src={image}
+          fill
+          alt={`Cabin ${name}`}
+          className=" object-cover border-r border-primary-800"
+        />
+      </div>
 
       <div className="flex-grow">
         <div className="pt-5 pb-4 px-7 bg-primary-950">
@@ -28,14 +33,16 @@ function CabinCard({ cabin }) {
             {discount > 0 ? (
               <>
                 <span className="text-3xl font-[350]">
-                  ${regularPrice - discount}
+                  {formatCurrency(regularPrice - discount)}
                 </span>
                 <span className="line-through font-semibold text-primary-600">
-                  ${regularPrice}
+                  {formatCurrency(regularPrice)}
                 </span>
               </>
             ) : (
-              <span className="text-3xl font-[350]">${regularPrice}</span>
+              <span className="text-3xl font-[350]">
+                {formatCurrency(regularPrice)}
+              </span>
             )}
             <span className="text-primary-200">/ night</span>
           </p>
