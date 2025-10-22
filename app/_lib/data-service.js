@@ -15,7 +15,7 @@ export function formatCurrency(amount) {
 
 export async function getCabin(id) {
   const { data, error } = await supabase
-    .from("cabins")
+    .from("Cabins")
     .select("*")
     .eq("id", id)
     .single();
