@@ -1,10 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 export default function Error({ error }) {
-  // const [buttonText, setButtonText] = useState("");
   const router = useRouter();
 
   const buttonText = window.history.length > 1 ? "Go Back" : "Go Home";
