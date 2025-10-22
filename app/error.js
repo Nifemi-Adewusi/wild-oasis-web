@@ -1,6 +1,20 @@
 "use client";
 
-export default function Error({ error, reset }) {
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+export default function Error({ error }) {
+  // const [buttonText, setButtonText] = useState("");
+  const router = useRouter();
+
+  const buttonText = window.history.length > 1 ? "Go Back" : "Go Home";
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/");
+    }
+  };
   return (
     <main className="flex justify-center items-center flex-col gap-6">
       <h1 className="text-3xl font-semibold">Something went wrong!</h1>
@@ -8,9 +22,9 @@ export default function Error({ error, reset }) {
 
       <button
         className="inline-block bg-accent-500 text-primary-800 px-6 py-3 text-lg"
-        onClick={reset}
+        onClick={handleBack}
       >
-        Try again
+        {buttonText}
       </button>
     </main>
   );
