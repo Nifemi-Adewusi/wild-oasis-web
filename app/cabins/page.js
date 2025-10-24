@@ -6,7 +6,11 @@ import Spinner from "../_components/Spinner";
 import Wrapper from "../_components/Wrapper";
 
 /* eslint-disable react/no-unescaped-entities */
-export const revalidate = 0;
+
+// revalidate = 0 means that the page will not be cached
+// export const revalidate = 0;
+// revalidate = 15 means that the page will be cached for 15 seconds and a new version will be generated every 15 seconds
+export const revalidate = 15;
 export const metadata = {
   title: "Cabins",
 };
