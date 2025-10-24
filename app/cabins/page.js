@@ -6,6 +6,7 @@ import Spinner from "../_components/Spinner";
 import Wrapper from "../_components/Wrapper";
 
 /* eslint-disable react/no-unescaped-entities */
+export const revalidate = 0;
 export const metadata = {
   title: "Cabins",
 };
