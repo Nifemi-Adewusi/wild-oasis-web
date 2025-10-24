@@ -1,9 +1,20 @@
-import { getCabins } from "../_lib/data-service";
+"use client";
+import useSWR from "swr";
 import CabinCard from "./CabinCard";
+import Spinner from "./Spinner";
 
-export default async function CabinList() {
-  const cabins = await getCabins();
-  if (!cabins.length) return;
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+export default function CabinList() {
+  const {
+    data: cabins,
+    error,
+    isLoading,
+  } = useSWR("/api/cabins", fetcher, {
+    refreshInterval: 15000,
+  });
+  if (isLoading) return <Spinner />;
+  if (error) throw new Error("Failed to load cabins");
+  if (!cabins?.length) return <p>No cabins found</p>;
   return (
     <div className="grid md:grid-cols-2  gap-8 lg:gap-12 xl:gap-14">
       {cabins.map((cabin) => (
