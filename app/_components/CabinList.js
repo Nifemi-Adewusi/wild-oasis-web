@@ -16,11 +16,11 @@ export default function CabinList({ filter }) {
   if (error) throw new Error("Failed to load cabins");
   let filteredCabins = cabins;
   if (filter === "small") {
-    filteredCabins = cabins.filter((cabin) => cabin.maxCapacity <= 3);
+    filteredCabins = cabins.filter((cabin) => cabin.maxCapacity <= 4);
   }
   if (filter === "medium") {
     filteredCabins = cabins.filter(
-      (cabin) => cabin.maxCapacity > 3 && cabin.maxCapacity <= 7
+      (cabin) => cabin.maxCapacity > 4 && cabin.maxCapacity <= 7
     );
   }
   if (filter === "large") {
