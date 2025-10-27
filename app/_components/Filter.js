@@ -26,6 +26,7 @@ export default function Filter({ queryKey }) {
   const pathName = usePathname();
 
   const activeFilter = searchParams.get(queryKey) || "all";
+  console.log(activeFilter);
   const handleFilterClick = (filter) => {
     const params = new URLSearchParams(searchParams);
     params.set(queryKey, filter);
@@ -42,37 +43,6 @@ export default function Filter({ queryKey }) {
           {filterButton.label}
         </Button>
       ))}
-      {/* <button
-        className="px-5 py-2 hover:bg-primary-700 border-r-2"
-        onClick={() => handleFilterClick("all")}
-      >
-        All Cabins
-      </button> */}
-      {/* <Button>All Cabins</Button> */}
-      {/* <button
-        className="px-5 py-2 hover:bg-primary-700 border-r-2"
-        onClick={() => handleFilterClick("small")}
-      >
-        1 &mdash;4 guests
-      </button>
-      <button
-        className="px-5 py-2 hover:bg-primary-700"
-        onClick={() => handleFilterClick("medium")}
-      >
-        5 &mdash; 8 guests
-      </button> */}
     </div>
   );
 }
-
-// function Button({ children, filteredBy, handleFilterClick }) {
-//   return (
-//     <button
-//       className="px-5 py-2 hover:bg-primary-700"
-//       onClick={() => handleFilterClick(filteredBy)}
-//     >
-//       {/* 5 &mdash; 8 guests */}
-//       {children}
-//     </button>
-//   );
-// }
