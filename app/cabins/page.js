@@ -4,6 +4,7 @@ import { getCabin, getCabins } from "../_lib/data-service";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
 import Wrapper from "../_components/Wrapper";
+import Filter from "../_components/Filter";
 
 /* eslint-disable react/no-unescaped-entities */
 
@@ -19,7 +20,7 @@ export const metadata = {
 
 export default function Page({ searchParams }) {
   console.log("Search Params:", searchParams);
-  const filter = searchParams?.capacity;
+  const filter = searchParams?.capacity ?? "all";
   console.log("Filter:", filter);
   return (
     <Wrapper>
@@ -35,6 +36,9 @@ export default function Page({ searchParams }) {
           little home away from home. The perfect spot for a peaceful, calm
           vacation. Welcome to paradise.
         </p>
+        <div className="flex justify-end mb-8">
+          <Filter queryKey={"capacity"} />
+        </div>
 
         <Suspense fallback={<Spinner />}>
           <CabinList filter={filter} />
