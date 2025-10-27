@@ -2,6 +2,7 @@ import { getCabin, getCabins } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import NotFoundCabin from "./NotFoundCabin";
+import TextExpander from "@/app/_components/TextExpander";
 
 export async function generateMetadata({ params }) {
   const cabin = await getCabin(params.cabinid);
@@ -91,7 +92,7 @@ export default async function Page({ params }) {
           </h3>
 
           <p className="md:text-lg text-sm leading-6 md:leading-10 text-primary-300 mb-10">
-            {description}
+            <TextExpander>{description}</TextExpander>
           </p>
 
           <ul className="flex flex-col gap-4 mb-7">
