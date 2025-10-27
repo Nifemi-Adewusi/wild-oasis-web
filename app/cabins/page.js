@@ -17,7 +17,10 @@ export const metadata = {
 
 // import CabinCard from "@/app/_components/CabinCard";
 
-export default function Page() {
+export default function Page({ searchParams }) {
+  console.log("Search Params:", searchParams);
+  const filter = searchParams?.capacity;
+  console.log("Filter:", filter);
   return (
     <Wrapper>
       <div>
@@ -34,7 +37,7 @@ export default function Page() {
         </p>
 
         <Suspense fallback={<Spinner />}>
-          <CabinList />
+          <CabinList filter={filter} />
         </Suspense>
       </div>
     </Wrapper>
