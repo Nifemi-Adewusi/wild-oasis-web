@@ -16,6 +16,10 @@ const filterButtonDetails = [
     label: "5 - 8 guests",
     filteredBy: "medium",
   },
+  {
+    label: " 9+ guests",
+    filteredBy: "large",
+  },
 ];
 
 export default function Filter({ queryKey }) {
@@ -25,6 +29,7 @@ export default function Filter({ queryKey }) {
   //   Returns the path or the current route we're on e.g /cabins
   const pathName = usePathname();
 
+  // Set the activeFilter to be the value of the queryKey or default to 'all
   const activeFilter = searchParams.get(queryKey) || "all";
   console.log(activeFilter);
   const handleFilterClick = (filter) => {
