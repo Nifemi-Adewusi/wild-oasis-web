@@ -20,11 +20,11 @@ export default function CabinList({ filter }) {
   }
   if (filter === "medium") {
     filteredCabins = cabins.filter(
-      (cabin) => cabin.maxCapacity > 4 && cabin.maxCapacity <= 7
+      (cabin) => cabin.maxCapacity > 4 && cabin.maxCapacity <= 8
     );
   }
   if (filter === "large") {
-    filteredCabins = cabins.filter((cabin) => cabin.maxCapacity >= 8);
+    filteredCabins = cabins.filter((cabin) => cabin.maxCapacity >= 9);
   }
   return (
     <div className="grid md:grid-cols-2  gap-8 lg:gap-12 xl:gap-14">
