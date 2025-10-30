@@ -9,8 +9,12 @@ export default async function Reservation({ cabin }) {
   ]);
   return (
     <div className="grid md:grid-cols-2  border border-primary-800 min-h-[400px]">
-      <DateSelector />
-      <ReservationForm />
+      <DateSelector
+        settings={settings}
+        cabin={cabin}
+        bookingDates={bookingDates}
+      />
+      <ReservationForm cabin={cabin} bookingDates={bookingDates} />
     </div>
   );
 }
