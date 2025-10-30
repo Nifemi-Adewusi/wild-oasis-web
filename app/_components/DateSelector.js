@@ -2,6 +2,7 @@
 import { isWithinInterval } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { formatCurrency } from "../_lib/data-service";
 
 function isAlreadyBooked(range, datesArr) {
   return (
@@ -45,13 +46,15 @@ function DateSelector() {
           <p className="flex gap-2 items-baseline">
             {discount > 0 ? (
               <>
-                <span className="text-2xl">${regularPrice - discount}</span>
+                <span className="text-2xl">
+                  {formatCurrency(regularPrice - discount)}
+                </span>
                 <span className="line-through font-semibold text-primary-700">
-                  ${regularPrice}
+                  {formatCurrency(regularPrice)}
                 </span>
               </>
             ) : (
-              <span className="text-2xl">${regularPrice}</span>
+              <span className="text-2xl">{formatCurrency(regularPrice)}</span>
             )}
             <span className="">/night</span>
           </p>
@@ -62,7 +65,9 @@ function DateSelector() {
               </p>
               <p>
                 <span className="text-lg font-bold uppercase">Total</span>{" "}
-                <span className="text-2xl font-semibold">${cabinPrice}</span>
+                <span className="text-2xl font-semibold">
+                  {formatCurrency(cabinPrice)}
+                </span>
               </p>
             </>
           ) : null}
