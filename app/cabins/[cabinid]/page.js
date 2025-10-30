@@ -1,3 +1,5 @@
+import Reservation from "@/app/_components/Reservation";
+import TextExpander from "@/app/_components/TextExpander";
 import {
   getBookedDatesByCabinId,
   getCabin,
@@ -7,9 +9,6 @@ import {
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import NotFoundCabin from "./NotFoundCabin";
-import TextExpander from "@/app/_components/TextExpander";
-import DateSelector from "@/app/_components/DateSelector";
-import ReservationForm from "@/app/_components/ReservationForm";
 
 export async function generateMetadata({ params }) {
   const cabin = await getCabin(params.cabinid);
@@ -32,11 +31,7 @@ export default async function Page({ params }) {
 
   // const bookedDates = await getBookedDatesByCabinId(params.cabinid);
 
-  const [cabin, settings, bookedDates] = await Promise.all([
-    getCabin(params.cabinid),
-    getSettings(),
-    getBookedDatesByCabinId(params.cabinid),
-  ]);
+  const [cabin] = await Promise.all([getCabin(params.cabinid)]);
   // console.log(cabinid);
   if (!cabin) {
     return <NotFoundCabin cabinid={params.cabinid} />;
@@ -138,10 +133,7 @@ export default async function Page({ params }) {
         <h2 className="md:text-5xl text-2xl text-accent-400 font-semibold text-center">
           Reserve cabin {name} today. Pay on arrival.
         </h2>
-        <div className="grid md:grid-cols-2  border border-primary-800 min-h-[400px]">
-          <DateSelector />
-          <ReservationForm />
-        </div>
+        <Reservation cabin={cabin} />
       </div>
     </div>
   );
