@@ -9,6 +9,8 @@ import {
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import NotFoundCabin from "./NotFoundCabin";
+import { Suspense } from "react";
+import Spinner from "@/app/_components/Spinner";
 
 export async function generateMetadata({ params }) {
   const cabin = await getCabin(params.cabinid);
@@ -133,7 +135,9 @@ export default async function Page({ params }) {
         <h2 className="md:text-5xl text-2xl text-accent-400 font-semibold text-center">
           Reserve cabin {name} today. Pay on arrival.
         </h2>
-        <Reservation cabin={cabin} />
+        <Suspense fallback={<Spinner />}>
+          <Reservation cabin={cabin} />
+        </Suspense>
       </div>
     </div>
   );
