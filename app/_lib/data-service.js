@@ -149,10 +149,10 @@ export async function getSettings() {
   return data;
 }
 
-export async function getCountries(countryName) {
+export async function getCountries() {
   try {
     const res = await fetch(
-      `https://restcountries.com/v2/all?fields=${countryName},flag`
+      `https://restcountries.com/v2/all?fields=name,flag`
     );
     const countries = await res.json();
     return countries;
