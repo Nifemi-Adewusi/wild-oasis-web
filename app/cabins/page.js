@@ -5,6 +5,7 @@ import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
 import Wrapper from "../_components/Wrapper";
 import Filter from "../_components/Filter";
+import ReservationReminder from "../_components/ReservationReminder";
 
 /* eslint-disable react/no-unescaped-entities */
 
@@ -42,6 +43,7 @@ export default function Page({ searchParams }) {
 
         <Suspense fallback={<Spinner />} key={filter}>
           <CabinList filter={filter} />
+          <ReservationReminder />
         </Suspense>
       </div>
     </Wrapper>
