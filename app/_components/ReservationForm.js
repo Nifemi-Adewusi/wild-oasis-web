@@ -3,7 +3,7 @@
 import { format } from "date-fns";
 import { useDateRange } from "../store/useDateRange";
 
-function ReservationForm({ cabin, bookingDates }) {
+function ReservationForm({ cabin, bookingDates, user }) {
   // CHANGE
 
   const { maxCapacity } = cabin;
@@ -12,7 +12,7 @@ function ReservationForm({ cabin, bookingDates }) {
   return (
     <div className="scale-[1.01]">
       <div className="bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center">
-        <p>Logged in as</p>
+        <p>Logged in as {user}</p>
       </div>
       <p>
         {String(range?.from)} to {String(range?.to)}
