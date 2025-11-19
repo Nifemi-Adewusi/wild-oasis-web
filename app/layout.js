@@ -1,8 +1,10 @@
 import "@/app/_styles/globals.css";
 
 import { Josefin_Sans } from "next/font/google";
-import Logo from "./_components/Logo";
+
+
 import Header from "./_components/Header";
+
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -18,7 +20,8 @@ export const metadata = {
   description:
     "Luxurious cabin hotel, located in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests.",
 };
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body
@@ -26,7 +29,9 @@ export default function RootLayout({ children }) {
       >
         <Header />
         <div className="flex-1 ">
-          <main className=" grid w-full">{children}</main>
+          <main className=" grid w-full">
+            {children}
+          </main>
         </div>
       </body>
     </html>
