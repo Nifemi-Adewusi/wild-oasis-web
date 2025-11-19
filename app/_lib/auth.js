@@ -12,6 +12,7 @@ export const {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  trustHost: true,
   callbacks: {
     authorized({ auth, request }) {
       return !!auth?.user;
