@@ -1,6 +1,7 @@
 import { auth } from "../_lib/auth";
 import { getBookedDatesByCabinId, getSettings } from "../_lib/data-service";
 import DateSelector from "./DateSelector";
+import LoginMessage from "./LoginMessage";
 import ReservationForm from "./ReservationForm";
 
 export default async function Reservation({ cabin }) {
@@ -17,7 +18,7 @@ export default async function Reservation({ cabin }) {
         cabin={cabin}
         bookingDates={bookingDates}
       />
-      <ReservationForm cabin={cabin} bookingDates={bookingDates} user={user} />
+      {user ? <ReservationForm cabin={cabin} bookingDates={bookingDates} user={user} /> : <LoginMessage />}
     </div>
   );
 }
