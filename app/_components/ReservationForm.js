@@ -2,6 +2,7 @@
 
 import { format } from "date-fns";
 import { useDateRange } from "../store/useDateRange";
+import Image from "next/image";
 
 function ReservationForm({ cabin, bookingDates, user }) {
   // CHANGE
@@ -12,7 +13,19 @@ function ReservationForm({ cabin, bookingDates, user }) {
   return (
     <div className="scale-[1.01]">
       <div className="bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center">
-        <p>Logged in as {user}</p>
+        <p>Logged in as</p>
+        <div>
+          <div className="flex items-center gap-2">
+            <Image
+              src={user.image}
+              alt={user.name}
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <p>{user.name}</p>
+          </div>
+        </div>
       </div>
       <p>
         {String(range?.from)} to {String(range?.to)}

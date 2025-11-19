@@ -10,7 +10,7 @@ export default async function Reservation({ cabin }) {
     getBookedDatesByCabinId(cabin.id),
   ]);
   const session = await auth()
-  const user = session?.user?.name
+  const user = session?.user
   return (
     <div className="grid md:grid-cols-2  border border-primary-800 min-h-[400px]">
       <DateSelector
